@@ -6,7 +6,8 @@
       .then(d => (rand = parseInt(d)));
   }
 </script>
+
 <main>
-<h1>Hello {rand}!</h1>
-<button on:click={getRand}>Get a random number</button>
+  <h1>Hello {rand}!</h1>
+  <button on:click={getRand}>Get a random number</button>
 </main>
