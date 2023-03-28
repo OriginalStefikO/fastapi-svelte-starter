@@ -1,7 +1,7 @@
-import os
-os.chdir("frontend")
-os.system("npm run build")
-os.chdir("../")
+# import os
+# os.chdir("frontend")
+# os.system("npm run build")
+# os.chdir("../")
 
 from typing import Union
 from fastapi import FastAPI
@@ -13,8 +13,8 @@ import random
 
 app = FastAPI()
 
-app.mount("/front", StaticFiles(directory="frontend/dist", html=True), name="front")
-app.mount("/build", StaticFiles(directory="frontend/dist/assets"), name="build")
+app.mount("/front", StaticFiles(directory="./dist", html=True), name="front")
+app.mount("/build", StaticFiles(directory="./dist/assets"), name="build")
 
 @app.get("/rand")
 async def rand():
