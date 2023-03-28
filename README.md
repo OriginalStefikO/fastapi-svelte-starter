@@ -1,5 +1,40 @@
 # ProjectGallery
 
+## How to run my Gallery
+
+1. Normaly clone this repository
+
+```git
+git clone https://github.com/OriginalStefikO/ProjectGallery.git
+```
+
+2. create Python virtual enviroment (further just venv)(optional, but will prevent some unexpected errors)
+    - when you restart your workspace you will need to activate it again, just run the second line
+
+> first we create venv from our python installation
+```cmd
+~\AppData\Local\Programs\Python\Python311\python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt #Here are just
+```
+> after that we activate it and install needed dependencies
+
+3. Get all svelte packages
+```cmd
+cd ./frontend
+npm install
+cd ../
+```
+
+4. Build svelte and run fastapi with uvicorn
+```cmd
+cd ./frontend
+npm run build; cd ../
+uvicorn main:app --reload
+```
+
+# My way of setting up **Fastapi + Svelte** hello world (1Q2023)
+
 ## How to setup **[FasAPI](https://fastapi.tiangolo.com)** with **[Svelte](https://svelte.dev)** or [React](https://react.dev) using **Vite**
 
 #### This repo is just me trying to setup Fastapi with Svelte and doing small project with one of them, I'm no expert and I just started, I just did't find any updated tutorial for this so I made my own.
@@ -49,7 +84,7 @@ pip install fastapi
 pip install "uvicorn[standard]"
 ```
 
-4. Run the Fastapi server (not now, it won't work, we are missing frontend)
+4. Run the Fastapi with uvicorn (not now, it won't work, we are missing frontend)
 ```cmd
 uvicorn main:app --reload
 ```
@@ -74,7 +109,7 @@ npm install
 
 ```js
 export default defineConfig({
-  plugins: [react()],
+  plugins: [svelte()],
   base: './',
   build: {
     outDir: '../dist',

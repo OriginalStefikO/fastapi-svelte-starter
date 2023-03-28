@@ -1,7 +1,9 @@
+#region Here you can automatically build the frontend when the backend is started
 # import os
-# os.chdir("frontend")
+# os.chdir("./frontend")
 # os.system("npm run build")
 # os.chdir("../")
+#endregion
 
 from typing import Union
 from fastapi import FastAPI
@@ -15,10 +17,6 @@ app = FastAPI()
 
 app.mount("/front", StaticFiles(directory="./dist", html=True), name="front")
 app.mount("/build", StaticFiles(directory="./dist/assets"), name="build")
-
-@app.get("/rand")
-async def rand():
-    return random.randint(0, 100)
 
 @app.get('/')
 async def front():
