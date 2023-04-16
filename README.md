@@ -37,8 +37,6 @@ uvicorn main:app --reload
 ```
 </details>
 
-<br />
-
 # My way of setting up **Fastapi + Svelte** Hello world (1Q2023)
 
 ## How to setup **[FasAPI](https://fastapi.tiangolo.com)** with **[Svelte](https://svelte.dev)** using **Vite**
