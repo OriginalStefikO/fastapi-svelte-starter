@@ -1,6 +1,9 @@
-# ProjectGallery
+# How to setup Fastapi with Svelte
 
-## How to run my Gallery
+## How to run this after cloning
+
+<details>
+  <summary>Click here to expand</summary>
 
 1. Normaly clone this repository
 
@@ -32,12 +35,15 @@ cd ./frontend
 npm run build; cd ../
 uvicorn main:app --reload
 ```
+</details>
 
-# My way of setting up **Fastapi + Svelte** hello world (1Q2023)
+<br />
+
+# My way of setting up **Fastapi + Svelte** Hello world (1Q2023)
 
 ## How to setup **[FasAPI](https://fastapi.tiangolo.com)** with **[Svelte](https://svelte.dev)** using **Vite**
 
-#### This repo is just me trying to setup Fastapi with Svelte and doing small project with one of them, I'm no expert and I just started, I just did't find any updated tutorial for this so I made my own.
+#### This repo is just me trying to setup Fastapi with Svelte, I'm no expert and I just started, I just did't find any updated tutorials for this, so I made my own.
 
 ### <ins> Setting up Fastapi </ins>
 
