@@ -14,3 +14,4 @@ async def main():
 @app.get("/example", response_class=FileResponse)
 async def main():
     return "public/pages/example.html"
+ 
