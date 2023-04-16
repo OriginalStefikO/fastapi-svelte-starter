@@ -11,7 +11,8 @@ export default defineConfig({
       assetsDir: 'assets',
       rollupOptions: {
          input: {
-            main: './index.html'
+            main: './index.html',
+            example: './pages/example.html',
          },
          output: {
             entryFileNames: 'assets/js/[name]-[hash].js',
