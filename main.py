@@ -1,23 +1,11 @@
-#region Here you can automatically build the frontend when the backend is started
-# import os
-# os.chdir("./frontend")
-# os.system("npm run build")
-# os.chdir("../")
-#endregion
-
-from typing import Union
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from starlette.responses import RedirectResponse
-import uvicorn
-
-import random
 
 app = FastAPI()
 
-app.mount("/front", StaticFiles(directory="./dist", html=True), name="front")
-app.mount("/build", StaticFiles(directory="./dist/assets"), name="build")
+app.mount("/assets", StaticFiles(directory="public/assets"), name="static")
 
-@app.get('/')
-async def front():
-   return RedirectResponse(url='front', status_code=302)
+@app.get("/", response_class=FileResponse)
+async def main():
+    return "public/index.html"

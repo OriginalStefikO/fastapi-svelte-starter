@@ -35,7 +35,7 @@ uvicorn main:app --reload
 
 # My way of setting up **Fastapi + Svelte** hello world (1Q2023)
 
-## How to setup **[FasAPI](https://fastapi.tiangolo.com)** with **[Svelte](https://svelte.dev)** or [React](https://react.dev) using **Vite**
+## How to setup **[FasAPI](https://fastapi.tiangolo.com)** with **[Svelte](https://svelte.dev)** using **Vite**
 
 #### This repo is just me trying to setup Fastapi with Svelte and doing small project with one of them, I'm no expert and I just started, I just did't find any updated tutorial for this so I made my own.
 
@@ -55,24 +55,19 @@ venv\Scripts\activate
 
 2. Create main.py
 ```py
-from typing import Union
 from fastapi import FastAPI
-
-# we need these to get files from server
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from starlette.responses import RedirectResponse
-
+ 
 app = FastAPI()
 
-# Here we mount our index.html that will be our build in dist forlder to /front
-app.mount("/front", StaticFiles(directory="./dist", html=True), name="front")
-# And here all the other files like css and js that is in assets folder
-app.mount("/build", StaticFiles(directory="./dist/assets"), name="build")
+# Define our static folder, where will be our svelte build later
+app.mount("/assets", StaticFiles(directory="public/assets"), name="static")
 
-# When you land in root it will redirect you to index.html
-@app.get('/')
-async def front():
-   return RedirectResponse(url='front', status_code=302)
+# Simply the root will return our Svelte build
+@app.get("/", response_class=FileResponse)
+async def main():
+    return "public/index.html"
 ```
 
 3. Download dependencies
@@ -89,37 +84,75 @@ pip install "uvicorn[standard]"
 uvicorn main:app --reload
 ```
 
-### <ins> Setting up Svelte or React with Vite </ins>
+### <ins> Setting up Svelte with Vite </ins>
 
-1. We start with initializing Vite
-    - choose the things in comments, if you want React, just choose React
+1. Start by initializing Vite:
+   - Choose the following options:
+   - Package name: `frontend`
+   - Install packages: `yes`
+   - Template: `Svelte`
+   - Typescript: `TS` I recommend typescript, you won't hate your life later haha
 
 ```cmd
 npm init vite;
-# (Package name)     frontend
-# (install packages) yes
-# (Template)         Svelte
-# (Typescript)       you can choose TS or JS, it depends on your preferences
 cd frontend;
 npm install
 ```
 
 2. Now it still won't work, we need to edit config first
-    - find vite.config.js (or ts)
+   - find vite.config.ts
+   - I made two scripts, the easy one and the better one, the second will make your life easier I think
 
-```js
+```ts
 export default defineConfig({
-  plugins: [svelte()],
-  base: './',
-  build: {
-    outDir: '../dist',
-    emptyOutDir: true,
-  },
+   plugins: [svelte()],
+   base: './',
+   build: { 
+      outDir: '../public',
+      assetsDir: 'assets',
+      emptyOutDir: true,
+   },
 })
 ```
-> When we build our app now, it will build it to dist folder in root and by changing **base: './'** the files in index.html won't be static but relative
 
-<br>
+```ts
+export default defineConfig({
+   plugins: [svelte()],
+   base: "./", // This will make paths relative
+   build: {
+      emptyOutDir: true,
+      outDir: '../public', // Where we want to put the build
+      assetsDir: 'assets', // This will be folder inside the public
+      rollupOptions: {
+         input: {
+            main: './index.html', // This index.html will be in public folder
+            // if you have more pages, just add them bellow like this:
+            // example: './pages/example.html',
+         },
+         output: {
+            entryFileNames: 'assets/js/[name]-[hash].js', // Here we put all js files into js folder
+            chunkFileNames: 'assets/js/[name]-[hash].js',
+            // But after that we need to define which files should go where with regex
+            assetFileNames: ({ name }) => {
+               if (/\.(gif|jpe?g|png|svg)$/.test(name ?? '')) {
+                  return 'assets/images/[name].[ext]';
+               }
+
+               if (/\.css$/.test(name ?? '')) {
+                  return 'assets/css/[name]-[hash].[ext]';
+               }
+
+               return 'assets/[name]-[hash].[ext]';
+            },
+         }
+      }     
+   }
+})
+```
+
+> When we build our app now, it will build it to "public" folder and the files should be in their correct subfolders
+
+***
 
 > When you want to run or build svelte, just run one of those in ./frontend
 ```cmd
@@ -132,4 +165,4 @@ npm run build
 uvicorn main:app --reload
 ```
 
-### If you have any suggestion for change or notice a mistake, just notify me or something, I hope this will help you when starting with svelte or React
+### That's it! You should now have a fully functional application with a FastAPI backend and Svelte frontend. Of course, this is just a starting point and you can customize and add to it as needed for your own projects.
