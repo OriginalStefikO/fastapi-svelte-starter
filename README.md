@@ -8,7 +8,7 @@
 1. Normaly clone this repository
 
 ```git
-git clone https://github.com/OriginalStefikO/ProjectGallery.git
+git clone https://github.com/OriginalStefikO/ProjectGallery.git .
 ```
 
 2. create Python virtual enviroment (further just venv)(optional, but will prevent some unexpected errors)
