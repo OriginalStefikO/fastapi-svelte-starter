@@ -1,17 +1,17 @@
 # How to setup Fastapi with Svelte
 
-## How to run this after cloning
+## Without any additional setup:
 
 <details>
   <summary>Click here to expand</summary>
 
-1. Normaly clone this repository
+1. Clone this repository
 
 ```git
-git clone https://github.com/OriginalStefikO/ProjectGallery.git .
+git clone https://github.com/OriginalStefikO/fastapi-svelte-starter.git .
 ```
 
-2. create Python virtual enviroment (further just venv)(optional, but will prevent some unexpected errors)
+2. Create Python virtual enviroment (further just venv)(optional, but will prevent some unexpected errors)
     - when you restart your workspace you will need to activate it again, just run the second line
 
 > first we create venv from our python installation
@@ -35,6 +35,11 @@ cd ./frontend
 npm run build; cd ../
 uvicorn main:app --reload
 ```
+5. When developing in Svelte, you can use dev server
+```cmd
+npm run dev
+```
+ 
 </details>
 
 # My way of setting up **Fastapi + Svelte** Hello world (1Q2023)
