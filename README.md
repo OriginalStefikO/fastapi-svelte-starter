@@ -1,6 +1,10 @@
 # How to setup Fastapi with Svelte
 
-## Without any additional setup:
+- Requirements: 
+    - [Python 3.10+](https://www.python.org/downloads/)
+    - [NodeJS](https://nodejs.org/en)
+
+## Installation without custom setup:
 
 <details>
   <summary>Click here to expand</summary>
