@@ -18,11 +18,11 @@
 
 	<footer class="p-3 flex gap-2 items-center">
 		<p>Example by <a href="https://www.linkedin.com/in/steffan-ondrej/">Ondřej Šteffan</a></p>
-		<a href="https://www.linkedin.com/in/steffan-ondrej/" target="_blank" class="flex items-center justify-center">
-			<img class="size-6 object-contain " src={linkedin_logo} alt="Linkedin logo" />
-		</a>
 		<a href="https://github.com/OriginalStefikO" target="_blank" class="flex items-center justify-center">
 			<img class="size-7 mb-0.5 object-contain " src={github_logo} alt="Github logo" />
+		</a>
+		<a href="https://www.linkedin.com/in/steffan-ondrej/" target="_blank" class="flex items-center justify-center">
+			<img class="size-6 object-contain " src={linkedin_logo} alt="Linkedin logo" />
 		</a>
 		<a href="https://www.instagram.com/stefik_o/" target="_blank" class="flex items-center justify-center">
 			<img class="size-6 object-contain " src={instagram_logo} alt="Instagram logo" />

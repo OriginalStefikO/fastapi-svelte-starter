@@ -49,5 +49,5 @@
 			<p><b>Body:</b> {article.body}</p>
 		{/if}
 	</div>
-	<p>To see how it works, look to <a href="https://github.com/OriginalStefikO/fastapi-svelte-starter" target="_blank">"/frontend/src/routes/about/+page.svelte"</a> file</p>
+	<p>To see how it works, look to <a href="https://github.com/OriginalStefikO/fastapi-svelte-starter/blob/main/frontend/src/routes/about/%2Bpage.svelte" target="_blank">"/frontend/src/routes/about/+page.svelte"</a> file</p>
 </div>
