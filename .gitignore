@@ -1,5 +1,6 @@
 # My ignores
 public
+!frontend/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
