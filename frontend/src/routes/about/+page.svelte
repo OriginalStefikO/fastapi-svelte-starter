@@ -22,7 +22,7 @@
 	});
 </script>
 
-<div>
+<div class="px-3">
 	<h1 class="py-3">About this app</h1>
 
 	<p>

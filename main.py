@@ -21,10 +21,12 @@ async def favicon_ico():
 
 app.mount('/', StaticFiles(directory='public', html=True))
 
-if __name__ == "__main__" and len(sys.argv) > 1:
-    match sys.argv[1]:
-        case 'dev' | "--dev" | "-d":
-            print("dev")
-            uvicorn.run("main:app", port=8002, reload=True)
-        case _:
-            uvicorn.run("main:app", port=8002)
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        match sys.argv[1]:
+            case "dev" | "--dev" | "-d" | "development":
+                print("Development")
+                uvicorn.run("main:app", port=8080, reload=True)
+    else:
+        print("Production")
+        uvicorn.run("main:app", host="0.0.0.0", port=8080, log_level="info", reload=False)
