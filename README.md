@@ -1,3 +1,11 @@
+> [!IMPORTANT]  
+> **1Q2024 update**<br/>
+> Setup in Main branch is currently outdated, it worked for svelte 3, but there is an **[update to svelte 4](https://github.com/OriginalStefikO/fastapi-svelte-starter/tree/update-to-svelte4)** branch. It works with static router and prerendering (also trailing slash enabled for FastAPI). Sadly I don't have time to create the tutorial for it (like for the last version) right now, as i'm approaching the end of High school. So I won't push to main <ins>yet</ins>
+> <br/><br/>
+> In July when I have time again, there will probably be Svelte 5 and I'm not thinking of leaving svelte behind at all, so update will probably arrive. Thanks for your time and support.
+
+<a href="https://www.buymeacoffee.com/stefiko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+
 # How to setup Fastapi with Svelte
 
 - Requirements: 
